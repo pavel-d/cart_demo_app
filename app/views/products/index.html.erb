@@ -1,0 +1,18 @@
+<% if @products && @products.present? %>
+  <% @products.each do |product| %>
+    <div class="product-item">
+      <h2 class="product-name">
+        <%= product.name %>
+      </h2>
+      <div class="product-description">
+        <%= product.description %>
+      </div>
+      <div class="product-price">
+        <%= product.price %>
+      </div>
+      <%= button_to 'Add to cart', cart_items_path(product_id: product.id), method: :post, remote: true %>
+    </div>
+  <% end %>
+<% else %>
+  <h3>No products :(</h3>
+<% end %>
