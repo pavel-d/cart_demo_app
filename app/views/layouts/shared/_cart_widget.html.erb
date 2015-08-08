@@ -1,0 +1,7 @@
+<div class="cart-widget" id="cart-widget">
+  <% if current_cart.cart_items.present? %>
+    <h3>You have <%= current_cart.cart_items.count %> product in your <%= link_to 'cart', carts_path %>. Total price: <%= current_cart.total_price %></h3>
+  <% else %>
+    <h3>Your cart is empty</h3>
+  <% end %>
+</div>

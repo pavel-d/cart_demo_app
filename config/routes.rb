@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'products#index'
 
-  resources :products, only: [:index]
+  resources :carts
+  resources :products
   resources :cart_items do
     member do
       post :increase

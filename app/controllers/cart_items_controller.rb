@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
     cart_item.update(quantity: cart_item.quantity + 1)
 
     respond_to do |format|
-      format.js { render 'cart' }
+      format.js { render 'cart_widget' }
     end
   end
 

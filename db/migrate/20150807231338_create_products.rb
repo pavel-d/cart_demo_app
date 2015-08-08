@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.decimal :price
-      t.integer :discount_id
+      t.integer :discount_id, index: true
 
       t.timestamps null: false
     end

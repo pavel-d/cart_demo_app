@@ -3,8 +3,8 @@ class Discounter
 
   def initialize(cart)
     @cart = cart
-    @products = cart.cart_items.map(&:product)
-    @discounts = @products.map(&:discount).compact.uniq
+    @products = Product.where(id: cart.cart_items.pluck(:product_id))
+    @discounts = Discount.where(id: @products.pluck(:discount_id).compact.uniq)
     @regular_price = cart.regular_price
   end
 

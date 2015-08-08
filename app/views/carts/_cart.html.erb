@@ -13,7 +13,7 @@
         <tbody>
           <% current_cart.cart_items.each do |cart_item| %>
             <tr>
-              <td><%= cart_item.product.name %></td>
+              <td><%= link_to cart_item.product.name, product_path(cart_item.product) %></td>
               <td><%= cart_item.quantity %></td>
               <td><%= cart_item.product.price %></td>
               <td>
@@ -27,8 +27,8 @@
         </tbody>
       </table>
       <% if current_cart.disounted? %>
-        <h3>Regular price: <%= current_cart.regular_price %></h3>
-        <h3>Discount amount: <%= current_cart.discount_amount %></h3>
+        <div>Regular price: <%= current_cart.regular_price %></div>
+        <div>Discount amount: <%= current_cart.discount_amount %></div>
       <% end %>
       <h3>Total price: <%= current_cart.total_price %></h3>
   <% else %>

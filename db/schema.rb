@@ -21,17 +21,19 @@ ActiveRecord::Schema.define(version: 20150807231936) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id"
+
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "discounts", force: :cascade do |t|
-    t.decimal  "absolute_value"
-    t.decimal  "relative_value"
+    t.decimal  "absolute_value", default: 0.0
+    t.decimal  "relative_value", default: 0.0
     t.integer  "threshold"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -42,5 +44,7 @@ ActiveRecord::Schema.define(version: 20150807231936) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "products", ["discount_id"], name: "index_products_on_discount_id"
 
 end
