@@ -15,3 +15,7 @@ bundle install
 rake db:create db:migrate db:seed
 rails s
 ```
+
+Demo
+==========
+https://stark-plains-2204.herokuapp.com/
