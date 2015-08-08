@@ -3,6 +3,7 @@ module CurrentCart
 
   included do
     before_action :current_cart
+    helper_method :current_cart
   end
 
   def current_cart
@@ -10,5 +11,6 @@ module CurrentCart
   rescue ActiveRecord::RecordNotFound
     @cart = Cart.create
     session[:cart_id] = @cart.id
+    @cart
   end
 end

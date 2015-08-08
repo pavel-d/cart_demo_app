@@ -22,8 +22,8 @@ class Discounter
 
   def applies?(discount)
     count = cart.cart_items.joins(:product)
-               .where(products: { discount_id: discount.id })
-               .map(&:quantity).reduce(:+)
+            .where(products: { discount_id: discount.id })
+            .map(&:quantity).reduce(:+)
 
     return true if count >= discount.threshold
     false

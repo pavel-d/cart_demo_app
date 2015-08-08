@@ -27,6 +27,6 @@ class Cart < ActiveRecord::Base
   end
 
   def discounter
-    @discounter = Discounter.new(self)
+    @discounter ||= Discounter.new(self)
   end
 end
